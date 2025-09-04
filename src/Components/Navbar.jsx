@@ -1,4 +1,5 @@
 import React from 'react'
+import {NavLink} from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -13,9 +14,11 @@ const Navbar = () => {
         </div>
 
         <div>
-            <button className="h-15 w-50 bg-gray-900 text-white p-5 rounded-xl font-semibold">
+            <NavLink to='/userL-R'>
+            <button className="h-15 w-50 bg-gray-900 text-white p-5 rounded-xl font-semibold cursor-pointer">
                 Sign In/Register
             </button>
+            </NavLink>
         </div>
     </div>
   )
