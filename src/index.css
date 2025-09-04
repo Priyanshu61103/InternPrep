@@ -1,1 +1,39 @@
+.navbarOption{
+    transition:all 0s ease-in 0s;
+}
+
+.navbarOption:hover{
+    background-color:#3e3e9b;
+    color:white;
+}
+
+.signInButton{
+     transition:all 0.25s ease-in 0s;
+}
+
+.signInButton:hover{
+    height: 65px;
+    width:210px;
+}
+
+.exploreButton{
+     transition:all 0.5s ease-in 0s;
+}
+
+.exploreButton:hover{
+    height: 50px;
+    width:210px;
+}
+
+.heroSectionDiv{
+     transition:all 0.5s ease-in 0s;
+}
+
+.heroSectionDiv:hover{
+    height: 370px;
+    width:370px;
+}
+
+
+
 @import "tailwindcss";
