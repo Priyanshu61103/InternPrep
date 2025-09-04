@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
-
+import { useSelector,useDispatch } from 'react-redux';
+import { changeMode } from '../../Redux/slice/slice';
 const SignUp = () => {
+    const mode = useSelector((state)=>state.mode.value);
+    const dispatch = useDispatch();
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -71,13 +74,13 @@ const SignUp = () => {
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 px-4 py-8">
-            <div className="max-w-md w-full space-y-8 bg-white rounded-2xl shadow-2xl p-8 backdrop-blur-sm bg-opacity-95">
+            <div className={mode==="light"?"max-w-md w-full space-y-8 bg-white rounded-2xl shadow-2xl p-8 backdrop-blur-sm bg-opacity-95":"max-w-md w-full space-y-8 bg-gray-950 rounded-2xl shadow-2xl p-8 backdrop-blur-sm bg-opacity-95"}>
                 {/* Header */}
                 <div className="text-center">
-                    <h1 className="text-4xl font-bold text-gray-900 mb-2">
+                    <h1 className={mode==="light"?"text-4xl font-bold text-gray-900 mb-2":"text-4xl font-bold text-white mb-2"}>
                         Create Account
                     </h1>
-                    <p className="text-gray-600 text-lg">
+                    <p className={mode==="light"?"text-gray-600 text-lg":"text-white text-lg"}>
                         Join us today and start your journey
                     </p>
                 </div>
@@ -89,7 +92,7 @@ const SignUp = () => {
                         <div>
                             <label 
                                 htmlFor="firstName" 
-                                className="block text-sm font-medium text-gray-700 mb-2"
+                                className={mode==="light"?"block text-sm font-medium text-gray-700 mb-2":"block text-sm font-medium text-white mb-2"}
                             >
                                 First Name
                             </label>
@@ -108,7 +111,7 @@ const SignUp = () => {
                         <div>
                             <label 
                                 htmlFor="lastName" 
-                                className="block text-sm font-medium text-gray-700 mb-2"
+                                className={mode==="light"?"block text-sm font-medium text-gray-700 mb-2":"block text-sm font-medium text-white mb-2"}
                             >
                                 Last Name
                             </label>
@@ -129,7 +132,7 @@ const SignUp = () => {
                     <div>
                         <label 
                             htmlFor="email" 
-                            className="block text-sm font-medium text-gray-700 mb-2"
+                            className={mode==="light"?"block text-sm font-medium text-gray-700 mb-2":"block text-sm font-medium text-white mb-2"}
                         >
                             Email Address
                         </label>
@@ -149,7 +152,7 @@ const SignUp = () => {
                     <div>
                         <label 
                             htmlFor="password" 
-                            className="block text-sm font-medium text-gray-700 mb-2"
+                            className={mode==="light"?"block text-sm font-medium text-gray-700 mb-2":"block text-sm font-medium text-white mb-2"}
                         >
                             Password
                         </label>
@@ -191,7 +194,7 @@ const SignUp = () => {
                     <div>
                         <label 
                             htmlFor="confirmPassword" 
-                            className="block text-sm font-medium text-gray-700 mb-2"
+                            className={mode==="light"?"block text-sm font-medium text-gray-700 mb-2":"block text-sm font-medium text-white mb-2"}
                         >
                             Confirm Password
                         </label>

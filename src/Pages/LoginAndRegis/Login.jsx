@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-
+import { useSelector,useDispatch } from 'react-redux';
+import { changeMode } from '../../Redux/slice/slice';
 const Login = () => {
+    const mode = useSelector((state) => state.mode.value);
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         email: '',
@@ -29,7 +31,7 @@ const Login = () => {
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 px-4">
-            <div className="max-w-md w-full space-y-8 bg-white rounded-2xl shadow-2xl p-8 backdrop-blur-sm bg-opacity-95 relative">
+            <div className={mode==="light"?"max-w-md w-full space-y-8 bg-white rounded-2xl shadow-2xl p-8 backdrop-blur-sm bg-opacity-95 relative":"max-w-md w-full space-y-8 bg-gray-950 rounded-2xl shadow-2xl p-8 backdrop-blur-sm bg-opacity-95 relative"}>
                 {/* Back to Home Button */}
                 <button
                     onClick={handleBackToHome}
@@ -43,10 +45,10 @@ const Login = () => {
 
                 {/* Header */}
                 <div className="text-center pt-4">
-                    <h1 className="text-4xl font-bold text-gray-900 mb-2">
+                    <h1 className={mode==="light"?"text-4xl font-bold text-gray-900 mb-2":"text-4xl font-bold text-white mb-2"}>
                         Welcome Back
                     </h1>
-                    <p className="text-gray-600 text-lg">
+                    <p className={mode=="light"?"text-gray-600 text-lg":"text-white text-lg"}>
                         Enter your credentials to access your account
                     </p>
                 </div>
@@ -58,7 +60,7 @@ const Login = () => {
                         <div>
                             <label 
                                 htmlFor="email" 
-                                className="block text-sm font-medium text-gray-700 mb-2"
+                                className={mode==="light"?"block text-sm font-medium text-gray-700 mb-2":"block text-sm font-medium text-white mb-2"}
                             >
                                 Email Address
                             </label>
@@ -78,7 +80,7 @@ const Login = () => {
                         <div>
                             <label 
                                 htmlFor="password" 
-                                className="block text-sm font-medium text-gray-700 mb-2"
+                                className={mode==="light"?"block text-sm font-medium text-gray-700 mb-2":"block text-sm font-medium text-white mb-2"}
                             >
                                 Password
                             </label>
@@ -104,7 +106,7 @@ const Login = () => {
                                 type="checkbox"
                                 className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                             />
-                            <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-700">
+                            <label htmlFor="remember-me" className={mode==="light"?"ml-2 block text-sm text-gray-700":"ml-2 block text-sm text-white"}>
                                 Remember me
                             </label>
                         </div>
@@ -142,7 +144,7 @@ const Login = () => {
                             <div className="w-full border-t border-gray-300" />
                         </div>
                         <div className="relative flex justify-center text-sm">
-                            <span className="px-2 bg-white text-gray-500">Or continue with</span>
+                            <span className={mode==="light"?"px-2 bg-white text-gray-500":"px-2 bg-gray-950 text-white"}>Or continue with</span>
                         </div>
                     </div>
 
